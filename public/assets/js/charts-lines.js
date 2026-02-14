@@ -36,12 +36,14 @@ const lineConfig = {
      * Default legends are ugly and impossible to style.
      * See examples in charts.html to add your own legends
      *  */
-    legend: {
-      display: false,
-    },
-    tooltips: {
-      mode: 'index',
-      intersect: false,
+    plugins: {
+      legend: {
+        display: false,
+      },
+      tooltip: {
+        mode: 'index',
+        intersect: false,
+      },
     },
     hover: {
       mode: 'nearest',
@@ -50,16 +52,16 @@ const lineConfig = {
     scales: {
       x: {
         display: true,
-        scaleLabel: {
+        title: {
           display: true,
-          labelString: 'Month',
+          text: 'Month',
         },
       },
       y: {
         display: true,
-        scaleLabel: {
+        title: {
           display: true,
-          labelString: 'Value',
+          text: 'Value',
         },
       },
     },

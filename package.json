@@ -1,10 +1,10 @@
 {
   "name": "windmill-dashboard",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "description": "A multi theme, completely accessible, with components and pages examples, ready for production dashboard.",
   "scripts": {
-    "tailwind": "tailwindcss build public/assets/css/tailwind.css -o public/assets/css/tailwind.output.css",
-    "build": "env NODE_ENV=production postcss public/assets/css/tailwind.css -o public/assets/css/tailwind.output.css",
+    "build": "NODE_ENV=production postcss public/assets/css/tailwind.css -o public/assets/css/tailwind.output.css",
+    "dev": "postcss public/assets/css/tailwind.css -o public/assets/css/tailwind.output.css --watch",
     "cz": "git-cz",
     "release": "release-it"
   },
@@ -12,16 +12,16 @@
   "license": "MIT",
   "devDependencies": {
     "@release-it/conventional-changelog": "1.1.4",
-    "@tailwindcss/custom-forms": "0.2.1",
-    "autoprefixer": "9.8.0",
-    "color": "3.1.2",
+    "@tailwindcss/forms": "0.5.11",
+    "@tailwindcss/postcss": "4.1.18",
+    "autoprefixer": "10.4.24",
     "commitizen": "4.1.2",
-    "cssnano": "4.1.10",
+    "cssnano": "7.1.2",
     "cz-conventional-changelog": "3.2.0",
-    "postcss-cli": "7.1.1",
+    "postcss": "8.5.6",
+    "postcss-cli": "11.0.1",
     "release-it": "13.6.4",
-    "tailwindcss": "1.4.6",
-    "tailwindcss-multi-theme": "1.0.3"
+    "tailwindcss": "4.1.18"
   },
   "keywords": [
     "tailwind",

@@ -1,26 +1,28 @@
-function data() {
-  function getThemeFromLocalStorage() {
-    // if user already changed the theme, use it
-    if (window.localStorage.getItem('dark')) {
-      return JSON.parse(window.localStorage.getItem('dark'))
-    }
+function getThemeFromLocalStorage() {
+  // if user already changed the theme, use it
 
-    // else return their preferences
-    return (
-      !!window.matchMedia &&
-      window.matchMedia('(prefers-color-scheme: dark)').matches
-    )
+  if (window.localStorage.getItem('dark')) {
+    return JSON.parse(window.localStorage.getItem('dark'))
   }
 
-  function setThemeToLocalStorage(value) {
-    window.localStorage.setItem('dark', value)
-  }
+  // else return their preferences
+  return (
+    !!window.matchMedia &&
+    window.matchMedia('(prefers-color-scheme: dark)').matches
+  )
+}
 
-  return {
+function setThemeToLocalStorage(value) {
+  window.localStorage.setItem('dark', value)
+}
+
+document.addEventListener('alpine:init', () => {
+  Alpine.data('data', () => ({
     dark: getThemeFromLocalStorage(),
     toggleTheme() {
       this.dark = !this.dark
       setThemeToLocalStorage(this.dark)
+      // Alpine's :class="{ 'dark': dark }" on <html> handles the class automatically
     },
     isSideMenuOpen: false,
     toggleSideMenu() {
@@ -58,5 +60,5 @@ function data() {
       this.isModalOpen = false
       this.trapCleanup()
     },
-  }
-}
+  }))
+})
